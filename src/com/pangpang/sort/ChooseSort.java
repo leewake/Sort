@@ -1,11 +1,13 @@
+package com.pangpang.sort;
+
 public class ChooseSort{
 	
 	public static void main(String[] args){
 		int[] arr = new int[] {12, 45, 23, 78, 25, 80, 60, 48};
-		System.out.print("初始数组：");
+		System.out.print("鍒濆鏁扮粍:");
 		print(arr);
 		sort(arr);
-		System.out.print("插入排序后的数组：");
+		System.out.print("閫夋嫨鎺掑簭鍚庣殑鏁扮粍:");
 		print(arr);
 	}
 	

@@ -1,14 +1,16 @@
+package com.pangpang.sort;
+
 public class MergeSort{
 	public static void main(String[] args){
 		
 		int[] arr = new int[] {5, 37, 7, 4, 90, 39};
 		
-		System.out.print("未归并排序的数组：");
+		System.out.print("鍒濆鏁扮粍:");
 		printResult(arr);
 		
 		sort(arr, 0, arr.length - 1);
 		
-		System.out.print("归并排序后的数组：");
+		System.out.print("褰掑苟鎺掑簭鍚庣殑鏁扮粍:");
 		printResult(arr);
 	}
 	
@@ -26,7 +28,7 @@ public class MergeSort{
 		
 		int[] temp = new int[arr.length];
 		
-		//另开两个变量保存数组的首尾下标，middle指示中间
+		//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟轿诧拷卤辏琺iddle指示锟叫硷拷
 		int m = i, n = middle + 1, k = i;
 		
 		while(m <= middle && n <= j){

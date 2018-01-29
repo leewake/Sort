@@ -1,3 +1,5 @@
+package com.pangpang.sort;
+
 public class QuickSort{
 	public static void main(String[] args){
 		int[] arr = new int[] {12, 43, 16, 97, 34, 78, 34, 73};

@@ -1,11 +1,13 @@
+package com.pangpang.sort;
+
 public class BubbleSort{
 	
 	public static void main(String[] args){
 		int[] arr = new int[] {12, 45, 2, 4, 8, 3, 2, 90, 45, 24, 80};
-		System.out.print("³õÊ¼Êı×éÎª£º");
+		System.out.print("åˆå§‹æ•°ç»„ä¸º:");
 		print(arr);
 		sort(arr);
-		System.out.print("Ã°ÅİÅÅĞòºóµÄÊı×éÎª£º");
+		System.out.print("å†’æ³¡æ’åºåçš„æ•°ç»„ä¸º:");
 		print(arr);
 	}
 	

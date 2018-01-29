@@ -1,14 +1,16 @@
+package com.pangpang.sort;
+
 public class MaxHeapSort{
 	
 	public static void main(String[] args){
 		
 		int[] arr = new int[] {12, 45, 23, 68, 89, 34, 67, 40};
 		
-		System.out.print("³õÊ¼Êý×é£º");
+		System.out.print("åˆå§‹æ•°ç»„:");
 		
 		print(arr);
 		
-		System.out.print("¶ÑÅÅÐòºóµÄÊý×é£º");
+		System.out.print("æœ€å¤§å †æŽ’åºåŽçš„æ•°ç»„:");
 		
 		heapSort(arr);
 		
@@ -25,21 +27,21 @@ public class MaxHeapSort{
 	
 	public static void creatMaxHeap(int[] arr, int lastIndex){
 		for(int i = (lastIndex - 1) / 2; i >= 0; i--){
-			//±£´æµ±Ç°½áµã
+			//ï¿½ï¿½ï¿½æµ±Ç°ï¿½ï¿½ï¿½
 			int k = i;
 			
 			while(2 * k + 1 <= lastIndex){
-				//biggerIndex×ÜÊÇ¼ÇÂ¼½Ï´ó½áµãµÄÖµ£¬ÏÈ¸³ÖµÎªµ±Ç°ÅÐ¶Ï½áµãµÄ×ó×Ó½áµã
+				//biggerIndexï¿½ï¿½ï¿½Ç¼ï¿½Â¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½È¸ï¿½ÖµÎªï¿½ï¿½Ç°ï¿½Ð¶Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½
 				int biggerIndex = 2 * k + 1;
 				
-				//±íÃ÷µ±Ç°½áµãµÄÓÒ½áµã´æÔÚ£¬·ñÔòbiggerIndex = lastIndex
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½biggerIndex = lastIndex
 				if(biggerIndex < lastIndex){
-					//Èôµ±Ç°½áµãµÄ×ó½áµã´óÓÚÓÒ½áµã£¬ÔòbiggerIndex¼Ó1
+					//ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ã£¬ï¿½ï¿½biggerIndexï¿½ï¿½1
 					if(arr[biggerIndex] < arr[biggerIndex + 1]){
 						biggerIndex++;
 					}						
 				}
-				//Èôµ±Ç°½áµãµÄÖµÐ¡ÓÚÆä×î´ó×Ó½áµãµÄÖµ£¬ÔòÁ½Õß½»»»
+				//ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÖµÐ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½
 				if(arr[k] < arr[biggerIndex]){
 					swap(arr, k, biggerIndex);
 					k = biggerIndex;
