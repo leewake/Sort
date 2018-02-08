@@ -9,7 +9,7 @@ public class Permutation {
 	private static Long total = 0L;
 	
 	public static void main(String[] args) {
-		String[] strings = {"a", "b", "c", "d", "e"};
+		String[] strings = {"a", "b", "c"};
 		permute(strings, 0, strings.length);
 		System.out.println("全排列总数为:" + total);
 	}
