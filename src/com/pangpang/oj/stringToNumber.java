@@ -1,5 +1,6 @@
 package com.pangpang.oj;
 /** 
+ * 将字符串与数字相互转化
 * @author  : lijingwei
 * @version ：2018年3月7日 下午7:55:28 
 */
