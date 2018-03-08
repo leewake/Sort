@@ -24,7 +24,7 @@ public class GetSystemProperty {
 		for (Entry<String, String> env : System.getenv().entrySet()) {
 			System.out.println(env.getKey() + " = " + env.getValue());
 		}
-//		System.err.println("CPU nnumber of the current computer is " + System.getenv("NUMBER_OF_PROCESSORS"));
+		System.err.println("CPU nnumber of the current computer is " + System.getenv("NUMBER_OF_PROCESSORS"));
 	}
 
 }
