@@ -22,5 +22,10 @@ public class stringToNumber {
 		}
 		return result;
 	}
+	
+	private static String numToStr(int num){
+		return null;
+		
+	}
 
 }
