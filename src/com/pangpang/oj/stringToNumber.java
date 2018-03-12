@@ -7,7 +7,13 @@ package com.pangpang.oj;
 public class stringToNumber {
 	public static void main(String[] args) {
 		System.out.println(strToNum("huawei"));
-		System.out.println(numToStr(104680767));
+		System.out.println(numToStr(104680767)); //对应的是"huawei"
+		System.out.println();
+		System.out.println(strToNum("zz"));
+		System.out.println(numToStr(702)); //对应的是"zz"
+		System.out.println();
+		System.out.println(strToNum("zzzzzz"));
+		System.out.println(numToStr(strToNum("zzzzzz")));
 	}
 	
 	private static int strToNum(String str){
@@ -23,15 +29,24 @@ public class stringToNumber {
 		return result;
 	}
 	
-	private static String numToStr(int num){
+	/**
+	 * 每次取余之后需要减26^i
+	 * 而每次被除数应该除以26^(i+1),而不是26
+	 * @param num
+	 * @return
+	 */
+	private static String numToStr(int num) {
 		String result = "";
 		int mod, div = num;
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 6 && num > 0; i++) {
 			mod = div % 26;
+			if (mod == 0) {
+				mod = 26;
+			}
 			result = (char) (mod + 96) + result;
 			num -= mod * Math.pow(26, i);
-			div = div / 26;
-			System.err.println("mod = " + mod + ", div = " + div + ", result = " + result);
+			//debug错误的原因是div = num / 26;
+			div =  num / (int)(Math.pow(26, i + 1));
 		}
 		return result;
 	}
