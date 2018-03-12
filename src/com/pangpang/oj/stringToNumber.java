@@ -6,7 +6,7 @@ package com.pangpang.oj;
 */
 public class stringToNumber {
 	public static void main(String[] args) {
-//		System.out.println(strToNum("huawei"));
+		System.out.println(strToNum("huawei"));
 		System.out.println(numToStr(104680767));
 	}
 	
@@ -24,13 +24,16 @@ public class stringToNumber {
 	}
 	
 	private static String numToStr(int num){
-		for (int i = 5; i > 0; i++) {
-			int tmp = (int) (num % Math.pow(26, i));
-			num -= Math.pow(26, i);
-			System.err.println(num % Math.pow(26, i));
+		String result = "";
+		int mod, div = num;
+		for (int i = 0; i < 6; i++) {
+			mod = div % 26;
+			result = (char) (mod + 96) + result;
+			num -= mod * Math.pow(26, i);
+			div = div / 26;
+			System.err.println("mod = " + mod + ", div = " + div + ", result = " + result);
 		}
-		return null;
-		
+		return result;
 	}
 
 }
