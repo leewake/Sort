@@ -30,7 +30,7 @@ public class MidInsertSort {
 				int left = 0;
 				int right = i - 1;
 				while (left <= right){
-					int mid = (left + right) / 2;
+					int mid = left + (right - left) / 2;
 					if (tmp > arr[mid]) {
 						left = mid + 1;
 					} else {
@@ -50,14 +50,5 @@ public class MidInsertSort {
 			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
-	}
-	
-	private static void test(){
-		int low = 1;
-		int high = 5;
-		int tmp1 = (low + high) / 2;
-		int tmp2 = low + (high - low) / 2;
-		System.err.println(tmp1);
-		System.err.println(tmp2);
 	}
 }
