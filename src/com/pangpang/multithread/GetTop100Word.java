@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
 /**
- * @description: //评测题目: 现在有大量文本文件（10000+），
+ * @description: 现在有大量文本文件（10000+），
  * 预计一共涉及单词数量1000W左右。要求并发计算，最终输出出现频率最高的100个单词及对应次数
  * @author: leewake
  * @create: 2018-11-13 20:06
