@@ -10,19 +10,15 @@ public class QuickSort{
 	
 	
 	public static void quickSort(int[] arr, int left, int right){
-		
 		if(left < right){
-			
 			int division = partition(arr, left, right);
 			quickSort(arr, left, division - 1);
 			quickSort(arr, division + 1, right);
 		}
-		
 	}
 	
 	
 	public static int partition(int[] arr, int left, int right){
-		
 		int pivot = arr[left];
 		
 		while(left < right){

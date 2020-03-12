@@ -13,8 +13,9 @@ public class Match {
     public static void main(String[] args) {
 
         String str = "abc";
-        String pattern = "*c";
-        boolean result = isMatch(str, pattern);
+        String pattern = "ab*c";//通配一个
+//        String pattern = "ab*bc";//匹配0个,前一个b相当于忽略
+        boolean result = match(str, pattern);
         System.out.println("匹配结果为:" + result);
     }
 
@@ -93,6 +94,53 @@ public class Match {
 
         System.out.println("dp:"+ Arrays.deepToString(dp));
         return dp[slen][plen];
+    }
+
+    public static boolean match(String str, String pattern) {
+        char[] strChars = str.toCharArray();
+        char[] patternChars = pattern.toCharArray();
+        if (strChars == null || patternChars == null) {
+            return false;
+        }
+        return matchCore(strChars, 0, patternChars, 0);
+    }
+
+    public static boolean matchCore(char[] str, int strIndex, char[] pattern, int patternIndex) {
+        //str到尾，pattern到尾，匹配成功
+        if (strIndex == str.length && patternIndex == pattern.length) {
+            return true;
+        }
+        //str未到尾，pattern到尾，匹配失败
+        if (strIndex != str.length && patternIndex == pattern.length) {
+            return false;
+        }
+     /*   //str到尾，pattern未到尾(不一定匹配失败，因为a*可以匹配0个字符)
+        if (strIndex == str.length && patternIndex != pattern.length) {
+            //只有pattern剩下的部分类似a*b*c*的形式，才匹配成功
+            if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*') {
+                return matchCore(str, strIndex, pattern, patternIndex + 2);
+            }
+            return false;
+        }*/
+
+        //第二个字符是*
+        if (patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*') {
+            if (pattern[patternIndex] == str[strIndex] || (pattern[patternIndex] == '.' && strIndex != str.length)) {
+                return matchCore(str, strIndex, pattern, patternIndex + 2)//*匹配0个，相当于忽略，跳过ac a*a 相当于0次
+                        || matchCore(str, strIndex + 1, pattern, patternIndex + 2)//*匹配1个，ac a*
+                        || matchCore(str, strIndex + 1, pattern, patternIndex);//*匹配1个，再匹配str中的下一个 aa a*
+            } else {
+                //第一个字符不相等
+                return matchCore(str, strIndex, pattern, patternIndex + 2);
+            }
+        }
+
+        //第二个字符不是*,如果第一个字符相等或者为.，则各自移一位，否则直接报错
+        if (pattern[patternIndex] == str[strIndex] || (pattern[patternIndex] == '.' && strIndex != str.length)) {
+            return matchCore(str, strIndex + 1, pattern, patternIndex + 1);
+        }
+
+        return false;
     }
 
 }
